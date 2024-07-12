@@ -1,0 +1,120 @@
+$base-color: #f1f0ee;
+$group-color: #7aced6;
+$navbar: #e2454f;
+$box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+@mixin todoButton($bg-color) {
+    margin: 0 10px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 25%;
+    cursor: pointer;
+    background-color: $bg-color;
+    color: white;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border 0.2s ease;
+
+    &:hover {
+        background-color: white;
+        color: $bg-color;
+        border-color: $bg-color;
+    }
+}
+
+@mixin group() {
+    display: flex;
+    justify-content: center;
+    border: 2px solid $base-color;
+    border-radius: 2%;
+    box-shadow: $box-shadow;
+    background-color: $group-color;
+    width: 900px;
+    height: 500px;
+    margin-bottom: 35px;
+
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        width: 800px;
+        list-style-type: none;
+        padding: 0;
+        margin: 20px 0;
+        overflow-y: auto;
+    }
+
+    &__list-item {
+        display: flex;
+        align-items: center;
+        width: 700px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: $base-color;
+        border: 1px solid $base-color;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+        font-size: 20px;
+    }
+
+    &__removeButton {
+        @include todoButton($navbar);
+        margin-left: auto;
+    }
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    font-size: 40px;
+    color: #f1f0ee;
+    //font-style: italic;
+    height: 80px;
+}
+
+.inputGroup {
+    width: fit-content;
+    margin: 35px;
+
+    &__input {
+        width: 600px;
+        height: 50px;
+        padding-left: 10px;
+        box-shadow: $box-shadow;
+        cursor: pointer;
+        font-size: 15px;
+
+        &::placeholder {
+            font-style: italic;
+        }
+    }
+
+    &__addButton {
+        @include todoButton($group-color);
+        box-shadow: $box-shadow;
+    }
+}
+
+.listGroup {
+    @include group();
+
+    &__checkbox {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+    }
+}
+
+.successGroup {
+    @include group();
+
+    &__doneIcon {
+        font-size: 30px;
+        margin-right: 5px;
+    }
+}
