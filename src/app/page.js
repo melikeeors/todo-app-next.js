@@ -10,7 +10,7 @@ export default function Home() {
   const [tasks, setTasks] = useState([]);
   const [successes, setSuccesses] = useState([]);
 
-  // Görev ekleme fonksiyonu
+  // Görev ekleme fonksiyonu (list kısmı için)
   const addTask = (task) => {
     setTasks([...tasks, task]);
   };
@@ -21,7 +21,7 @@ export default function Home() {
     setTasks(newTasks);
   };
 
-  // Başarı ekleme fonksiyonu (list kısmı için)
+  // Başarı ekleme fonksiyonu (success kısmı için)
   const addSuccess = (task) => {
     setSuccesses([...successes, task]);
   };
